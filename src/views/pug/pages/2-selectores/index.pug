@@ -1,0 +1,89 @@
+extends ../../templates/base.pug
+block config
+  - const baseOpenGraphImage1200x1200  = require('../../../../assets/img/dist/opengraph/opengraph-1200x1200.jpg');
+  - const baseOpenGraphImage1200x640  = require('../../../../assets/img/dist/opengraph/opengraph-1200x640.png');
+  - const linkToHumansTXT     = require('../../../../humans.txt');
+
+block header
+  h1 Curso CSS | Módulo 2 - Selectores
+
+block main
+
+  section
+    h1 Hola soy un título
+    p Hola soy un parrafo
+
+
+  section
+    //- Herencia de clases CSS
+    h1.title.text-center Hola soy un título
+    p.description.bold Hola soy un parrafo
+    p.-p1 Hola soy un parrafo
+    p._p1 Hola soy un parrafo
+    <p class="😍"> Hola soy un parrafo </p>
+
+  section
+    h1#title Soy un título
+    p#description Hola soy un parrafo
+    <p id="😋"> Hola soy un parrafo </p>
+
+  section
+    ul
+      li hola
+      li hola
+      li hola
+      li hola
+      li.last hola #[span 6]
+
+  section
+    h1.title Título
+    p.description  Descripción
+
+  section
+    ul.list
+      li.list__item item 1
+      li.list__item item 2
+      li.list__item item 3
+      li.list__item item 4
+      li.list__item item 5
+
+  section
+    div.padre-directo
+      span.hijo-directo Hijo #1, dentro del padre.
+        span.hijo-directo Hijo #2, dentro del hijo que está en el padre.
+    span.hijo-directo Hijo #3, no está dentro del div
+
+  section
+    h3.title-1 Titulo 1
+    h4.subtitle Subtitulo
+    h4.subtitle Subtitulo
+    h3.title-2 Titulo 2
+    h4.subtitle Subtitulo
+    h4.subtitle Subtitulo
+
+  section
+    input.check(type="checkbox", name="")
+    div.enabled(for="") Activado
+    div.disabled(for="") Desactivado
+
+  section
+    form(action="")
+      input(type="email", name="")
+      input(type="date", name="", required)
+      input(type="submit", value="Enviar")
+  section
+    a(href="/contacto.html") contacto
+    a(href="https://ed.team/cursos") cursos
+    a(href="https://ed.team/youtube") youtube
+
+  section
+    a(href="/contacto.html") contacto
+    a(href="https://ed.team/cursos") cursos
+    a(href="https://ed.team/manual.pdf") youtube
+
+  section
+    a(href="", class="button-cta") Dale clic
+    a(href="", class="button-alert") Cancelar cuenta
+block prepend footer
+  +schemaWebsite()
+  +schemaOrganization()

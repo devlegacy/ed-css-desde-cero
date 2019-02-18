@@ -1,0 +1,20 @@
+@charset 'UTF-8';
+
+@import '../config';
+@import '../base/base';
+@import '../layout/layout';
+@import '../components/components';
+@import '../tools/utilities';
+
+:root {
+  --main-background-color: green;
+}
+
+body {
+  background-color: var(--main-background-color);
+}
+
+h1 {
+  background-color: white;
+  color: var(--main-background-color);
+}

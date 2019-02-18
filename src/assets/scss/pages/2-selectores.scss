@@ -1,0 +1,264 @@
+@charset 'UTF-8';
+
+@import '../config';
+@import '../base/base';
+@import '../layout/layout';
+@import '../components/components';
+@import '../tools/utilities';
+:root {
+  --main-primary-color :purple;
+  --main-secondary-color:green;
+}
+body {
+  font-size: 2rem;
+}
+
+/**
+ * Reset estilos del navegador
+ */
+
+h1 {
+  margin: 0;
+
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+p {
+  margin: 0;
+}
+
+/**
+ * Selectores de etiqueta
+ */
+h1 {
+  background-color: yellow;
+  color: red;
+}
+
+p {
+  background-color: lime;
+  color: white;
+}
+
+
+
+/**
+ * Selectores de clase
+ * Las clases tienen reglas de declaración:
+ * - No pueden iniciar con números
+ * - Pueden haber - y _ al inicio
+ * - Puedes usar emojis como clases
+ */
+.title {
+  background-color: lime;
+  color: white;
+}
+
+.description {
+  background-color: yellow;
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+._p1 {
+  background-color: blue;
+}
+
+.-p1 {
+  background-color: darkgoldenrod;
+}
+
+.😍 {
+  background-color: orchid;
+}
+
+/**
+ * Selectores de ID
+ * únicos
+ * no son reutilizables
+ * no son recomendados para dar estilos
+ */
+
+#title {
+  background-color: yellowgreen;
+}
+
+#description {
+  background-color: darkgrey;
+}
+
+#😋 {
+  background-color: darkorange;
+}
+
+/**
+ * Selector universal
+ */
+
+* {
+  padding: 4px;
+}
+
+/**
+ * Poblemas con el selector universal
+ */
+ul * {
+  display: none;
+}
+
+.last {
+  display: block;
+
+  color: blue;
+}
+/**
+ * Solución
+ */
+.last * {
+  display: inline;
+}
+
+/**
+ * Los atributos son case sensitive
+ * Las etiquetas son case insensitive
+ */
+
+//  P{
+//    color:red;
+//  }
+
+/**
+ * Selectores agrupados
+ */
+
+.title,
+.description {
+  color: powderblue;
+
+  font-size: 2rem;
+}
+
+/**
+ * Selectores descendientes
+ * ul li
+ * preferemente no usar selectores descendientes
+ */
+.list * {
+  display: block;
+}
+
+.list {
+  &__item {
+    color: red;
+  }
+}
+
+/**
+ * Hijo directo
+ */
+.hijo-directo {
+  background-color: white;
+}
+.padre-directo > .hijo-directo {
+  background-color: DodgerBlue;
+}
+
+/**
+ * Hermano
+ * +
+ */
+
+.subtitle {
+  margin-top: -2em;
+
+  font-size: .5em;
+}
+
+.title-1 {
+  color: var(--main-primary-color);
+  & + .subtitle {
+    color: var(--main-primary-color);
+  }
+}
+.title-2 {
+  color:var(--main-secondary-color);
+  & + .subtitle {
+    color: var(--main-secondary-color);
+  }
+}
+
+
+.check {
+  & + .enabled {
+    display: none;
+  }
+
+  &:checked {
+    & ~ .enabled {
+      display: block;
+    }
+    & ~ .disabled {
+      display: none;
+    }
+  }
+}
+
+/**
+ * Selector de atributo,
+ */
+input[type='email'] {
+  border: 1px solid blue;
+}
+input[type='submit'] {
+  background-color: red;
+}
+[required] {
+  border: 1px solid red;
+  margin: 5px;
+}
+
+/**
+ * Selector de atributo
+ * comienza con
+ */
+
+a {
+  background: url(~../../img/dist/icons/external.png) no-repeat center right / 2rem;
+}
+
+a[href^='/'] {
+  color:red;
+  background: none;
+}
+
+a[href^='https://ed.team'] {
+  color:magenta;
+  padding-right: 2.2rem;
+}
+
+a[href$='.pdf'] {
+  background: url(~../../img/dist/icons/pdf.png) no-repeat center right / 2rem;
+}
+
+[class*='button-'] {
+  display: inline-block;
+  margin: 1em;
+  padding: 1em 2em;
+  text-decoration: none;
+  color: white;
+}
+
+.button-cta {
+  background-color: orange;
+}
+.button-alert {
+  background-color: red;
+}
