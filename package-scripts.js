@@ -65,5 +65,8 @@ module.exports = {
       },
       update: 'ncu -a && npm i'
     },
+    img: {
+      build: 'dvx img:build --use sharp --exc opengraph'
+    }
   },
 };
