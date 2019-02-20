@@ -6,6 +6,14 @@ const webpackDevServer = () => {
       headers: {
         'Access-Control-Allow-Origin': '*'
       },
+      disableHostCheck: true,
+      proxy: {
+        '/': {
+          target: 'http://localhost:8080/?url=',
+          // pathRewrite: { "^/backend": "" },
+          secure: false,
+        }
+      },
       clientLogLevel: 'none', // string You can prevent all messages
       compress: true, // boolean Enable gzip compression for everything served:
       contentBase: Dvx.paths.fromRoot('public'), // boolean | string | array Tell the server where to serve content from
